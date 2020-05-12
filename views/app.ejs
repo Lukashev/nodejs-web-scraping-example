@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%=title %></title>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    .books__container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .books__container_item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+
+    .books__container_item img {
+      margin: 0 auto;
+    }
+
+    .books__container_item_price {
+      margin-top: 10px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .books__container_item_rating {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    @media screen and (max-width: 992px) {
+      .books__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .books__container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="books__container">
+    <% for(var i=0; i<books.length;i++) {%>
+    <div class="books__container_item">
+      <img src="<%= books[i].imageSrc %>" width="137" height="178" />
+      <h4 title="<%= books[i].title %>"><%= books[i].title.substring(0, 20) %></h4>
+      <i>Автор: <%= books[i].author %></i>
+      <p>Рейтинг: <span class="books__container_item_rating"><%= books[i].rating %></span></p>
+      <span class="books__container_item_price"><%= books[i].price %> грн</span>
+    </div>
+    <%} %>
+  </div>
+</body>
+<html>
