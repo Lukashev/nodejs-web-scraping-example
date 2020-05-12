@@ -15,7 +15,7 @@ app.get('*', async function (req, res) {
   });
 })
 
-app.listen(3000, function () {
+app.listen(process.env.APP_PORT || 3000, process.env.APP_IP || '127.0.0.1', function () {
   console.log('happy web scrapping!')
 })
 
